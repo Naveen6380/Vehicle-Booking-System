@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: heavy-equipment-rental
+
+  profiles:
+    active: dev
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# Custom JWT properties (read via @ConfigurationProperties or @Value)
+app:
+  jwt:
+    secret: ${JWT_SECRET:ChangeThisSecretKeyInProductionMakeItLongAndRandom123456}
+    expiration-ms: 86400000   # 24 hours
+  cors:
+    allowed-origins: ${FRONTEND_URL:http://localhost:5173}
