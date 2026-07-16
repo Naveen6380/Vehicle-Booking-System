@@ -46,7 +46,7 @@ public class EquipmentService {
                 .type(dto.getType())
                 .location(dto.getLocation())
                 .pricePerHour(dto.getPricePerHour())
-                .imageUrl(dto.getImageUrl())
+                .imageUrls(dto.getImageUrls())
                 .status(EquipmentStatus.AVAILABLE)
                 .build();
 
@@ -74,7 +74,7 @@ public class EquipmentService {
         equipment.setType(dto.getType());
         equipment.setLocation(dto.getLocation());
         equipment.setPricePerHour(dto.getPricePerHour());
-        equipment.setImageUrl(dto.getImageUrl());
+        equipment.setImageUrls(dto.getImageUrls());
 
         return mapToResponse(equipmentRepository.save(equipment));
     }
@@ -179,7 +179,7 @@ public class EquipmentService {
                 .type(equipment.getType())
                 .location(equipment.getLocation())
                 .pricePerHour(equipment.getPricePerHour())
-                .imageUrl(equipment.getImageUrl())
+                .imageUrls(equipment.getImageUrls())
                 .status(equipment.getStatus())
                 .ownerName(equipment.getOwner().getName())
                 .createdAt(equipment.getCreatedAt())

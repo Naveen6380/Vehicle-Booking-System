@@ -12,6 +12,12 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.ElementCollection;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Represents a piece of heavy equipment listed for rent by an Owner.
  */
@@ -51,8 +57,13 @@ public class Equipment {
     @Column(name = "price_per_hour", nullable = false, precision = 10, scale = 2)
     private BigDecimal pricePerHour;
 
+    @ElementCollection
+    @CollectionTable(
+            name = "equipment_images",
+            joinColumns = @JoinColumn(name = "equipment_id")
+    )
     @Column(name = "image_url")
-    private String imageUrl;
+    private List<String> imageUrls = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false, length = 20)

@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -29,5 +31,6 @@ public class EquipmentRequestDTO {
     @DecimalMin(value = "1.0", message = "Price must be at least ₹1 per hour")
     private BigDecimal pricePerHour;
 
-    private String imageUrl;
+    // Multiple image URLs — frontend upload பண்ணி கிடைச்ச URLs இங்க வரும்
+    private List<String> imageUrls = new ArrayList<>();
 }

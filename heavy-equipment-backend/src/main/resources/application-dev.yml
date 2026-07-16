@@ -18,3 +18,7 @@ logging:
   level:
     com.heavyequip.rental: DEBUG
     org.hibernate.SQL: DEBUG
+
+  web:
+    resources:
+      static-locations: classpath:/static/,file:uploads/
